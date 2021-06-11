@@ -1,2 +1,2 @@
-# Angular-quizz-app-codingMart
+# Angular-quizz-app
 Created with CodeSandbox

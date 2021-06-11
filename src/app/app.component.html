@@ -1,0 +1,42 @@
+<h4>Questions</h4>
+<table>
+  <tr *ngFor="let user of questions; let position = index; ">
+    <td>{{user.question}}</td>
+
+    <td></td>
+
+    <td class="list-group">
+      <tr>
+        <td *ngFor="let item of user.options">
+          <input
+            style="color: green;"
+            type="radio"
+            [(ngModel)]="user.answer"
+            name="{{position}}"
+            value="{{item}}"
+            checked="{{item === user.answer}}"
+            (change)="onItemChange(item,position)"
+          />
+          {{item}}
+        </td>
+      </tr>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><button (click)="update()">Save</button></td>
+  </tr>
+</table>
+
+<table *ngIf="status">
+  <h4>Questions & Answers</h4>
+
+  <tr *ngFor="let user of questions;">
+    <td *ngIf="user.answer">{{user.question}}</td>
+
+    <td *ngIf="user.answer">
+      <input style="color: green;" type="radio" checked="{{user.answer}}" />
+      {{user.answer}}
+    </td>
+  </tr>
+</table>
